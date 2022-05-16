@@ -8,8 +8,11 @@ function App() {
     <div className="App">
        <CatalogueProvider>
            <CartProvider>
-               <ProductList type="catalogue"></ProductList>
-               <ProductList type="cart"></ProductList>
+               
+               <ProductList type="catalogue" bgColor={"red"}>
+                    
+               </ProductList>
+               <ProductList type="cart" bgColor={"yellow"}></ProductList>
            </CartProvider>
        </CatalogueProvider>
     </div>

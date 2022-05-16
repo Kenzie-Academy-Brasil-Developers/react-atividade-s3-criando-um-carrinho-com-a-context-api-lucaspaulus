@@ -31,6 +31,7 @@ export const CatalogueProvider = ({children})=> {
         <CatalogueContext.Provider
             value={{catalogue, addToCatalogue, removeFromCatalogue}}
         >
+            {children}
         </CatalogueContext.Provider>
     )
 }

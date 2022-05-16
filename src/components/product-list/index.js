@@ -7,28 +7,35 @@ import { CatalogueContext } from '../../providers/catalogue';
 import { CartContext } from '../../providers/cart';
 
 import * as S from "./style"
-function ProductList({type}) {
+function ProductList({type, bgColor}) {
 
     const {catalogue} = useContext(CatalogueContext)
     const {cart} = useContext(CartContext)
     return (
-        <ul>
+        <S.Container bgColor={bgColor}>
+            {type === "catalogue" ? <p>Catalogo</p> : <p>Carrinho</p> }
+            
             {type === "catalogue" && catalogue.map((item, index)=>(
-                <li key={index}>
+                
+                <S.List key={index}>
+                    
                     {item.name}
                     <Button type={type} item={item}/>
 
-                </li>
+                </S.List>
             ))}
 
             {type === "cart" && cart.map((item,index)=>(
-                <li key={index}>
-                    {item.name} 
-                    <Button type={type} item={item}/>
-                </li>
+                <>
+                    <S.List key={index}>
+                        {item.name} 
+                        <Button type={type} item={item}/>
+                    </S.List>
+                </>
+               
 
             ))}
-        </ul>
+        </S.Container>
     )
 }
 
